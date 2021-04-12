@@ -33,11 +33,11 @@ ARGS=("$@")
 # done
 # echo $QUIET_MODE $PROJECT_DIR $BIN_FILE "$COMMAND"
 
-while getopts ":sd:c:b:" opt; do
+while getopts ":vd:c:b:" opt; do
   case $opt in
-    s)
-		printf -- '-s: quiet mode activated\n'
-		QUIET_MODE="1"
+    v)
+		printf -- '-v: verbose mode activated\n'
+		QUIET_MODE="0"
 		;;
 	d)
     	PROJECT_DIR=$OPTARG
