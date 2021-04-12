@@ -14,8 +14,21 @@ purple='\e[35m'       # Purple
 cyan='\e[36m'         # Cyan
 white='\e[37m'        # White
 
-echo -e "${green}Running entrypoint...${reset}"
-echo "Binary file: $BIN_FILE"
+echo -e "${green}running entrypoint...${reset}"
 
-make re CC=clang -C repo > /dev/null
-find repo -type f -name $BIN_FILE -exec valgrind {} \;
+if [ "$QUIET_MODE" -eq "1" ]; then
+	make re CC=clang -C repo > /dev/null 
+else
+	make re CC=clang -C repo
+fi
+
+if [ -n "$COMMAND" ]; then
+	printf "${blue}running command '$COMMAND'${reset}\n";
+	cd repo && $COMMAND
+elif [ -n "$BIN_FILE" ]; then
+	printf "${blue}running simple valgrind $BIN_FILE${reset}\n"
+	#valgrind $BIN_FILE
+	find repo -type f -name $BIN_FILE -exec valgrind {} \;
+else
+	exit 1
+fi
