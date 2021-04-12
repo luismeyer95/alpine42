@@ -1,0 +1,21 @@
+
+#!/bin/bash
+
+# reset
+reset="\e[0m"       # Text Reset
+
+# Regular Colors
+black="\e[30m"        # Black
+red='\e[31m'          # Red
+green="\e[32m"        # Green
+yellow='\e[33m'       # Yellow
+blue='\e[34m'         # Blue
+purple='\e[35m'       # Purple
+cyan='\e[36m'         # Cyan
+white='\e[37m'        # White
+
+echo -e "${green}Running entrypoint...${reset}"
+echo "Binary file: $BIN_FILE"
+
+make re CC=clang -C repo > /dev/null
+find repo -type f -name $BIN_FILE -exec valgrind {} \;
