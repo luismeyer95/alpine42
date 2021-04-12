@@ -6,5 +6,4 @@ WORKDIR /root
 RUN apk add bash clang clang-dev gcc lld make valgrind musl-dev
 RUN mkdir repo
 
-
 CMD bash entrypoint
