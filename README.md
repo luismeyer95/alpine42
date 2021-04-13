@@ -9,7 +9,7 @@ The script makes use of the `grealpath` command, which can be installed with:
 $ brew install coreutils
 ```
 
-Clone the repository and add those two lines to your shell environment (~/.bashrc, ~/.zshrc...)
+Clone the repository and set the following variables in your shell env (~/.bashrc, ~/.zshrc...) so that ALPINE42_INSTALL is the path to this repository:
 
 ```
 export ALPINE42_INSTALL=$HOME/Desktop/alpine42
