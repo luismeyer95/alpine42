@@ -12,8 +12,19 @@ $ brew install coreutils
 Clone the repository and add those two lines to your shell environment (~/.bashrc, ~/.zshrc...)
 
 ```
-$ export ALPINE42_INSTALL_DIR=<PATH_TO_YOUR_INSTALL_DIRECTORY>
-$ export PATH="$PATH:$ALPINE_INSTALL_DIR"
+export ALPINE42_INSTALL=$HOME/Desktop/alpine42
+export ALPINE42_BIN_PATH=$ALPINE42_INSTALL/bin
+export PATH="$PATH:$ALPINE42_BIN_PATH"
+```
+
+Update your current shell's environment, for example
+```
+$ source ~/.zshrc
+```
+
+This script assumes that docker is installed. Run the `install_docker_42` script of this repository if it isn't
+```
+$ ./install_docker_42
 ```
 
 Run with -h to show usage

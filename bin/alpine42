@@ -54,8 +54,6 @@ while (! docker stats --no-stream > /dev/null 2>&1 ); do
   	sleep 10
 done
 
-
-
 if [[ "$PROJECT_DIR" == "" ]] ; then
 	printf "${yellow}WARNING: -d flag not provided, defaulting to cwd ($(pwd))${reset}\n"
 	PROJECT_DIR=$(pwd)
@@ -72,9 +70,9 @@ PROJECT_DIR=$(grealpath $PROJECT_DIR)
 printf "${green}building container image...${reset}\n"
 
 if [ "$QUIET_MODE" -eq "1" ]; then
-	docker build -t alpine42-img $ALPINE42_INSTALL_DIR > /dev/null
+	docker build -t alpine42-img $ALPINE42_INSTALL > /dev/null
 else
-	docker build -t alpine42-img $ALPINE42_INSTALL_DIR
+	docker build -t alpine42-img $ALPINE42_INSTALL
 fi
 
 printf "${green}running container...${reset}\n"
