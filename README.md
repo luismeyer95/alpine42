@@ -1,6 +1,6 @@
 # alpine42
 
-A CLI wrapper around docker for use on 42 projects
+A CLI wrapper around docker for use on 42 projects. The Docker image is built from an Alpine Linux image to which I added valgrind, clang and clang++ among other tools. Feel free to customize the Dockerfile for your own needs!
 
 ## Installation (MacOS)
 
